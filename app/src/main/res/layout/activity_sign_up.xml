@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#A6C462"
+    tools:context=".SignUp">
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+        <RelativeLayout
+            android:id="@+id/signIn_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_below="@+id/Logo">
+            <!--=======================SignIn Body   ================================-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/login_text_fullSection"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="25dp"
+                app:cardCornerRadius="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#465431"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/ownerName_SignUp"
+                        style="@style/editText_signin_signup"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="15dp"
+                        android:drawableRight="@drawable/ic_email_icon"
+                        android:hint="Owner Name" />
+
+                    <EditText
+                        android:id="@+id/email_signUp"
+                        style="@style/editText_signin_signup"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:hint="Email" />
+                    <EditText
+                        android:id="@+id/password_signUp"
+                        style="@style/editText_signin_signup"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:drawableRight="@drawable/ic_hide_icon"
+                        android:inputType="textPassword"
+                        android:hint="Password" />
+                    <EditText
+                        android:id="@+id/rePassword_signUp"
+                        style="@style/editText_signin_signup"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginBottom="25dp"
+                        android:drawableRight="@drawable/ic_hide_icon"
+                        android:inputType="textPassword"
+                        android:hint="Retype Password" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <!--=======================Sign in mathi wala ================================-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/signIn_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:forceHasOverlappingRendering="true"
+                app:cardCornerRadius="5dp">
+
+                <LinearLayout
+                    android:layout_width="85dp"
+                    android:layout_height="30dp"
+                    android:background="#543146"
+                    android:gravity="center">
+
+                    <TextView
+                        style="@style/SignInAndSignUp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sign Up" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <!--=======================Sign in mathi wala ================================-->
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:elevation="10dp"
+                android:layout_marginTop="295dp"
+                android:outlineAmbientShadowColor="#ffffff"
+                app:cardCornerRadius="5dp">
+
+                <LinearLayout
+                    android:id="@+id/signUp_Button"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:background="#543146"
+                    android:gravity="center">
+
+                    <TextView
+                        style="@style/SignInAndSignUp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sign Up"
+                        android:textSize="20dp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+    </ScrollView>
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/progressbar_signUp"
+        android:visibility="gone"/>
+
+
+</RelativeLayout>

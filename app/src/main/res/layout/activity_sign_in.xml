@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#a6c462"
+    tools:context=".SignIn">
+    <!--=================================Logo===========================-->
+    <LinearLayout
+        android:id="@+id/Logo"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#a6c462"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Logo"
+            android:textColor="#000000"
+            android:textSize="50dp" />
+    </LinearLayout>
+    <!--====================================Text Body sing in=============================-->
+    <RelativeLayout
+        android:id="@+id/signIn_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Logo">
+        <!--=======================SignIn Body   ================================-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/login_text_fullSection"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="25dp"
+            app:cardCornerRadius="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#465431"
+                android:orientation="vertical">
+
+                    <EditText
+                    android:id="@+id/email_signIn"
+                    style="@style/editText_signin_signup"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="15dp"
+                    android:drawableRight="@drawable/ic_email_icon"
+                    android:hint="Email" />
+
+                <EditText
+                    android:id="@+id/password_signIn"
+                    style="@style/editText_signin_signup"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="25dp"
+                    android:drawableRight="@drawable/ic_hide_icon"
+                    android:hint="Password"
+                    android:inputType="textPassword" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <!--=======================Sign in mathi wala ================================-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/signIn_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:forceHasOverlappingRendering="true"
+            app:cardCornerRadius="5dp">
+
+            <LinearLayout
+                android:layout_width="85dp"
+                android:layout_height="30dp"
+                android:background="#543146"
+                android:gravity="center">
+
+                <TextView
+                    style="@style/SignInAndSignUp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sign In" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <!--=======================Sign in mathi wala ================================-->
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="195dp"
+            app:cardCornerRadius="5dp">
+
+            <LinearLayout
+                android:id="@+id/logIn_Button"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:background="#543146"
+                android:gravity="center">
+
+                <TextView
+                    style="@style/SignInAndSignUp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Log In"
+                    android:textSize="20dp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+    <!--=========================forget your passowrd=======================-->
+    <LinearLayout
+        android:id="@+id/forget_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/signIn_details"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:id="@+id/forget_password_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Forget Your Passowrd?"
+            android:textColor="#121F92"
+            android:textSize="12dp" />
+    </LinearLayout>
+    <!--====================================Line And Or=============================-->
+    <LinearLayout
+        android:id="@+id/line_or"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/forget_password"
+        android:layout_marginTop="25dp"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:layout_weight="4.5"
+            android:background="#000000"
+            android:gravity="left" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Or"
+            android:textColor="#000000"
+            android:textSize="12dp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:layout_weight="4.5"
+            android:background="#000000" />
+    </LinearLayout>
+    <!--====================================Facebook and gmail login=============================-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line_or"
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/facebook_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:background="#A6C462"
+            android:src="@drawable/ic_facebook_button" />
+
+        <ImageButton
+            android:id="@+id/google_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:background="#A6C462"
+            android:src="@drawable/ic_google_button" />
+    </LinearLayout>
+    <!--====================================Sign Up =============================-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:fontFamily="@font/raleway_regular"
+            android:gravity="right"
+            android:text="New User?"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/sign_Up"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:fontFamily="@font/raleway_regular"
+            android:gravity="left"
+            android:text="Sign Up"
+            android:textColor="#121F92"
+            android:textStyle="bold" />
+    </LinearLayout>
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressbar_signIn"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
+
+</RelativeLayout>

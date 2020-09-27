@@ -1,0 +1,139 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!--==============================Course Details Start======================-->
+
+    <style name="round_profile_photo">
+        <item name="civ_border_width">1dp</item>
+        <item name="civ_border_color">#000000</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:layout_margin">5dp</item>
+    </style>
+
+    <style name="profile_name">
+        <item name="textAllCaps">false</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textStyle">bold</item>
+        <item name="fontFamily">@font/raleway_regular</item>
+    </style>
+    <!--===================================This is style for Main Course================================-->
+    <!--=================================== Main Course ko Title================================-->
+    <style name="main_course">
+        <item name="android:textSize">22dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:gravity">left</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textStyle">bold</item>
+        <item name="fontFamily">@font/raleway_regular</item>
+    </style>
+    <!--===================================Under Main COurse================================-->
+    <style name="main_course.day">
+        <item name="android:textSize">10dp</item>
+        <item name="android:textColor">#ff0000</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:maxLines">1</item>
+        <item name="fontFamily">@font/raleway_regular</item>
+    </style>
+    <!--===================================Main COurse price================================-->
+    <style name="main_course.price_khanaSingleUnit">
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">#000000</item>
+        <item name="fontFamily">@font/raleway_regular</item>
+    </style>
+    <style name="main_course.price">
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="fontFamily">@font/raleway_regular</item>
+    </style>
+    <!--===============================icon properties========================================-->
+    <style name="icon_styles">
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+    <!--===============================Courses ko property========================================-->
+    <style name="main_course.courses">
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:maxLines">1</item>
+    </style>
+    <style name="main_course.kahana_single_unit">
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+
+    <!--=======================================Hotel Profile Starts Here=======================================-->
+    <!--=======================================Hotel Profile Starts Here=======================================-->
+    <!--=======================================Hotel Profile Starts Here=======================================-->
+
+    <!--=======================================Hotel Name specs=======================================-->
+    <style name="HotelProfileName">
+        <item name="android:textSize">20dp</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="fontFamily">@font/raleway_regular</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="HotelProfileName.phonenumber">
+        <item name="android:textSize">15dp</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="fontFamily">@font/raleway_regular</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="HotelProfileName.catagory">
+        <item name="android:textSize">10dp</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="fontFamily">@font/raleway_regular</item>
+    </style>
+    <style name="HotelProfileName.catagoryOnclick">
+        <item name="android:textSize">10dp</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="fontFamily">@font/raleway_regular</item>
+    </style>
+
+
+    <!--=====================================Khana Feed =======================================-->
+    <!--=====================================Khana Feed =======================================-->
+    <style name="hi_name">
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">25dp</item>
+        <item name="fontFamily">@font/raleway_regular</item>
+    </style>
+
+    <!--======================signIn and signUp types=============================-->
+    <style name="SignInAndSignUp">
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="fontFamily">@font/raleway_regular</item>
+        <item name="android:gravity">center</item>
+
+    </style>
+    <style name="editText_signin_signup">
+        <item name="android:textColorHint">#e5e5e5</item>
+        <item name="android:textSize">20dp</item>
+        <item name="fontFamily">@font/raleway_regular</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+
+
+</resources>
