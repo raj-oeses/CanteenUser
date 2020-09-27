@@ -25,6 +25,7 @@ public class SignUp extends AppCompatActivity {
     LinearLayout signUpButton;
     private FirebaseAuth mAuth;
     ProgressBar progressBar;
+    String emailForDatabaseName;
 
 
     @Override
@@ -94,8 +95,11 @@ public class SignUp extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     //progressDialog.dismiss();
                     progressBar.setVisibility(View.GONE);
+                    emailForDatabaseName=emailSignUp.getText().toString();
                     Toast.makeText(SignUp.this, "User Register SuccessFully", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getApplicationContext(), SignUpAdditional.class));
+                    Intent signUp=new Intent(getApplicationContext(),SignUpAdditional.class);
+                    signUp.putExtra("DatabaseNameForStoring",emailForDatabaseName);
+                    startActivity(signUp);
                 } else {
                     progressBar.setVisibility(View.GONE);
                     if (task.getException() instanceof FirebaseAuthUserCollisionException) {

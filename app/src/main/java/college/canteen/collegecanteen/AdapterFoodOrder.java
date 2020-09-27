@@ -27,7 +27,7 @@ public class AdapterFoodOrder extends RecyclerView.Adapter<AdapterFoodOrder.View
     }
     @Override
     public int getItemCount() {
-        return arr.length;
+        return 3;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

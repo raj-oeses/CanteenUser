@@ -42,7 +42,6 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
 
         mAuth = FirebaseAuth.getInstance();
     }
-
     /*===============================signing in wala function===================================*/
     public void LoggingIn() {
         String email, password;
@@ -103,9 +102,5 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
     @Override
     protected void onStart() {
         super.onStart();
-        if (mAuth.getCurrentUser() != null) {
-            finish();
-            startActivity(new Intent(getApplicationContext(), FullKhanaFeed.class));
-        }
     }
 }

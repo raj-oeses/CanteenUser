@@ -9,6 +9,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -25,6 +26,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -39,20 +42,21 @@ public class SignUpAdditional extends AppCompatActivity implements View.OnClickL
     LinearLayout signUp;
     Uri ImageUri;
     private StorageReference mStorage;
-    String hotelNameRef, profileImageUrl;
-    String htlName, htlPhoneNumber, collegeAround;
+    String hotelNameRef, profileImageUrl, DatabaseName;
+    String usrName, userPhoneNumber, studyCollege;
     ProgressBar hotelImageProgress;
     Uri link;
 
-    FirebaseUser user;
+    FirebaseUser user, user2;
     FirebaseAuth mAuth;
     DatabaseReference mRef;
+    FirebaseFirestore mFireStore;
+    DocumentReference mDoc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_additional);
-
 
         ownerImage = findViewById(R.id.owner_photo);
         hotelName = findViewById(R.id.hotel_name);
@@ -61,6 +65,13 @@ public class SignUpAdditional extends AppCompatActivity implements View.OnClickL
         hotelImageProgress = findViewById(R.id.progressbar_HotelImage);
 
         signUp = findViewById(R.id.signUp_Button_additional);
+
+        mFireStore = FirebaseFirestore.getInstance();
+       /* mAuth = FirebaseAuth.getInstance();
+        DatabaseName=user.getEmail();*/
+
+        //DatabaseName = getIntent().getStringExtra("DatabaseNameForStoring");
+
 
         ownerImage.setOnClickListener(this);
         signUp.setOnClickListener(this);
@@ -84,24 +95,25 @@ public class SignUpAdditional extends AppCompatActivity implements View.OnClickL
     private void UploadingInformation() {
         Toast.makeText(this, "UploadingInformation Samma pugyo", Toast.LENGTH_SHORT).show();
 
-        htlName = hotelName.getText().toString().trim();
-        htlPhoneNumber = hotelPhoneNumber.getText().toString().trim();
-        collegeAround = college.getText().toString().trim();
+        usrName = hotelName.getText().toString().trim();
+        userPhoneNumber = hotelPhoneNumber.getText().toString().trim();
+        studyCollege = college.getText().toString().trim();
         if ((hotelName.getText().toString().trim()).isEmpty()) {
             hotelName.setError("Hotel Name Required");
             hotelName.requestFocus();
             return;
         }
-        if (htlPhoneNumber.isEmpty()) {
+        if (userPhoneNumber.isEmpty()) {
             hotelPhoneNumber.setError("Hotel Phone Number Required");
             hotelPhoneNumber.requestFocus();
             return;
         }
+
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
         if (user != null && ImageUri != null) {
             UserProfileChangeRequest profile = new UserProfileChangeRequest.Builder()
-                    .setDisplayName(htlName)
+                    .setDisplayName(usrName)
                     .setPhotoUri(ImageUri)
                     .build();
             user.updateProfile(profile).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -117,8 +129,9 @@ public class SignUpAdditional extends AppCompatActivity implements View.OnClickL
 
     /*=========================================uploading Image===================================*/
     private void UploadImage() {
+        user = mAuth.getCurrentUser();
         mStorage = FirebaseStorage.getInstance()
-                .getReference("HotelProfilePics/" + hotelNameRef + "/" + System.currentTimeMillis() + ".jpg");
+                .getReference("HotelProfilePics/" + user.getEmail() + "/" + System.currentTimeMillis() + ".jpg");
         Toast.makeText(this, "UplaodingImage samma Pugyo", Toast.LENGTH_SHORT).show();
 
         /*==================================ProgressBar Seen=========================================*/
@@ -139,7 +152,7 @@ public class SignUpAdditional extends AppCompatActivity implements View.OnClickL
 
                     profileImageUrl = link.toString();
                     DataBaseStroing(profileImageUrl);
-                    Toast.makeText(SignUpAdditional.this, "Image Uploaded Successfully", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(SignUpAdditional.this, "Image Uploaded Successfully", Toast.LENGTH_SHORT).show();
 
                 }
             }).addOnFailureListener(new OnFailureListener() {
@@ -153,12 +166,31 @@ public class SignUpAdditional extends AppCompatActivity implements View.OnClickL
 
     /*=======================================================String Details InDataBase==========================================*/
     public void DataBaseStroing(String ImageUrl) {
-        mRef = FirebaseDatabase.getInstance().getReference().child("HotelInfo").child(htlName + System.currentTimeMillis());
+        Toast.makeText(this, "DatabaseString samma aaying", Toast.LENGTH_SHORT).show();
+        user2 = mAuth.getCurrentUser();
+
+        //mRef = FirebaseDatabase.getInstance().getReference().child("UserInfo").child(user.getEmail());
+        String Childkey = String.valueOf(System.currentTimeMillis());
+
+        mRef = FirebaseDatabase.getInstance().getReference().child("UserInfo").child(user2.getUid());
+        mDoc = FirebaseFirestore.getInstance().collection("UserDetails").document(user2.getUid());
         HashMap<String, Object> HotelInfo = new HashMap<>();
-        HotelInfo.put("HotelName", htlName);
-        HotelInfo.put("PhoneNumber", htlPhoneNumber);
-        HotelInfo.put("CollegeAround", collegeAround);
+        HotelInfo.put("UserName", usrName);
+        HotelInfo.put("PhoneNumber", userPhoneNumber);
+        HotelInfo.put("College", studyCollege);
+        HotelInfo.put("Keys", user2.getUid());
         HotelInfo.put("ImageUrl", ImageUrl);
+        mDoc.set(HotelInfo).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Toast.makeText(SignUpAdditional.this, "firebase Cloud ma vayo", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(SignUpAdditional.this, "Something went worng cloud", Toast.LENGTH_SHORT).show();
+            }
+        });
         mRef.setValue(HotelInfo).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
@@ -166,6 +198,7 @@ public class SignUpAdditional extends AppCompatActivity implements View.OnClickL
                 hotelPhoneNumber.getText().clear();
                 college.getText().clear();
                 Toast.makeText(SignUpAdditional.this, "Uploaded EveryThing ", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(), SignIn.class));
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -173,6 +206,7 @@ public class SignUpAdditional extends AppCompatActivity implements View.OnClickL
                 Toast.makeText(SignUpAdditional.this, e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 
 
