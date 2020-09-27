@@ -134,6 +134,13 @@
         <item name="android:maxLines">1</item>
     </style>
 
+    <!--======================================floating button lable styles=====================================-->
+    <style name="floating_button_style">
+        <item name="fontFamily">@font/raleway_regular</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:background">@drawable/floating_button_options</item>
+    </style>
+
 
 
 </resources>

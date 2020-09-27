@@ -99,4 +99,44 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.getbase.floatingactionbutton.FloatingActionsMenu
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="0dp"
+            app:fab_addButtonColorNormal="#543146"
+            app:fab_addButtonColorPressed="#24151e"
+            app:fab_addButtonPlusIconColor="#ffffff"
+            app:fab_addButtonSize="normal"
+            app:fab_labelStyle="@style/floating_button_style">
+
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/aboutUs_FullKhanaFeed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fabSize="mini"
+                app:fab_colorNormal="#A6C462"
+                app:fab_colorPressed="#313A1D"
+                app:fab_icon="@drawable/ic_about_us"
+                app:fab_title="About Us" />
+
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/userProfile_FullKhanaFeed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fabSize="mini"
+                app:fab_colorNormal="#A6C462"
+                app:fab_colorPressed="#313A1D"
+                app:fab_icon="@drawable/ic_profile"
+                app:fab_title="Profile" />
+
+        </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+    </RelativeLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -45,7 +45,7 @@ dependencies {
     //picasso for images
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'com.squareup.okhttp:okhttp:2.4.0'
-    //implementation 'com.getbase:floatingactionbutton:1.10.1'   //for floating action button
+    implementation 'com.getbase:floatingactionbutton:1.10.1'   //for floating action button
 
     implementation 'com.google.firebase:firebase-auth:19.4.0'
     implementation 'com.google.firebase:firebase-storage:19.2.0'

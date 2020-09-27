@@ -16,7 +16,11 @@
         <activity android:name=".SignUpAdditional"/>
         <activity android:name=".SignUp"/>
         <activity android:name=".SignIn">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".FullKhanaFeed">
 
@@ -25,11 +29,7 @@
         <activity android:name=".CanteenKhanaDetails"/>
         <activity android:name=".UserProfile"/>
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

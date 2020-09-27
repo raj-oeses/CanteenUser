@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.MenuItem;
@@ -14,6 +15,8 @@ import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class FullKhanaFeed extends AppCompatActivity {
@@ -21,7 +24,8 @@ public class FullKhanaFeed extends AppCompatActivity {
     AdapterFullKhanaFeed adapterr;
     ViewFlipper flipper;
 
-    ImageView contextMenu;
+    //ImageView contextMenu;
+    FloatingActionButton userProfile,aboutUs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +33,22 @@ public class FullKhanaFeed extends AppCompatActivity {
         setContentView(R.layout.activity_full_khana_feed);
 
         flipper = findViewById(R.id.flipper);
-        //contextMenu = findViewById(R.id.context_Menu);
+        userProfile=findViewById(R.id.userProfile_FullKhanaFeed);
+        aboutUs=findViewById(R.id.aboutUs_FullKhanaFeed);
 
+        userProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),UserProfile.class));
+            }
+        });
+        aboutUs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(FullKhanaFeed.this, "about is going to be build ", Toast.LENGTH_SHORT).show();
+            }
+        });
+        //contextMenu = findViewById(R.id.context_Menu);
         //registerForContextMenu(contextMenu);
 
         int image[] = {R.drawable.a, R.drawable.food_art};
@@ -67,14 +85,7 @@ public class FullKhanaFeed extends AppCompatActivity {
         flipper.setInAnimation(this, android.R.anim.slide_in_left);
         flipper.setOutAnimation(this, android.R.anim.slide_out_right);
     }
-    /*==========================================          3 dot menu ======================================*/
-    /*@Override
-    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-        super.onCreateContextMenu(menu, v, menuInfo);
-        getMenuInflater().inflate(R.menu.menu_layout,menu);
-
-    }
-    *//*==========================================when item is clicked in menu======================================*//*
+    /*==========================================when item is clicked in menu======================================*//*
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
